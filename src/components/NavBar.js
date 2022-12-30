@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Nike from "images/logo192.png";
 import { CartWidget } from "./CartWidget";
 
-export const Header = () => {
+export const NavBar = () => {
   const value = useContext(DataContext);
   const [carrito] = value.carrito;
   const [menu, setMenu] = value.menu;
@@ -14,7 +14,7 @@ export const Header = () => {
   };
 
   return (
-    <header>
+    <nav>
       <div className="menu">
         <box-icon name="menu"></box-icon>
       </div>
@@ -38,6 +38,6 @@ export const Header = () => {
         <CartWidget />
         <span className="item__total"> {carrito.length} </span>
       </div>
-    </header>
+    </nav>
   );
 };

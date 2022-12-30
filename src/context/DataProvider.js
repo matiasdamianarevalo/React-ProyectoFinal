@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import Data from "Data";
-import Data1 from "Data1";
+/* import Data1 from "Data1"; otra categoria a agregar */
 
 export const DataContext = createContext();
 

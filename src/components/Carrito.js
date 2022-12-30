@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-/* import Card from "images/img02.jpg"; */
 import { DataContext } from "context/DataProvider";
 
 export const Carrito = () => {
@@ -30,7 +29,7 @@ export const Carrito = () => {
   };
 
   const removeProducto = (id) => {
-    if (window.confirm("¿Quieres suspender el producto?")) {
+    if (window.confirm("¿Quieres eliminar el producto del carrito?")) {
       carrito.forEach((item, index) => {
         if (item.id === id) {
           item.cantidad = 1;
@@ -41,16 +40,16 @@ export const Carrito = () => {
     }
   };
 
-  const show1 = menu ? "carritos show" : "carrito";
-  const show2 = menu ? "carrito show" : "carrito";
+  const shop1 = menu ? "carritos shop1" : "carrito";
+  const shop2 = menu ? "carrito shop2" : "carrito";
 
   return (
-    <div className={show1}>
-      <div className={show2}>
+    <div className={shop1}>
+      <div className={shop2}>
         <div onClick={tooglefalse} className="carrito__close">
           <box-icon name="x"></box-icon>
         </div>
-        <h2>Su Carrito</h2>
+        <h2>Carrito de compras</h2>
         <div className="carrito__center">
           {carrito.length === 0 ? (
             <h2 style={{ textAlign: "center", fontSize: "3rem" }}>
@@ -86,7 +85,6 @@ export const Carrito = () => {
                   </div>
                 </div>
               ))}
-              ;
             </>
           )}
         </div>
