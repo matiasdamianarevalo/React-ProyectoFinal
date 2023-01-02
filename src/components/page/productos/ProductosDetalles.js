@@ -93,7 +93,9 @@ export const ProductosDetalles = () => {
                 id={producto.id}
               />
             );
-          }
+          }else{
+            return (console.error("error"))
+            }
         })}
       </div>
     </>
