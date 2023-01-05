@@ -1,19 +1,19 @@
 import React, { createContext, useState, useEffect } from "react";
 import Data from "Data";
-/* import Data1 from "Data1"; otra categoria a agregar */
 
 export const DataContext = createContext();
 
 export const DataProvider = (props) => {
 	const [productos, setProductos] = useState([]);
 	const [menu, setMenu] = useState(false)
-	const [carrito, setCarrito] =useState([])
+	const [carrito, setCheckout] =useState([])
 	const [total, setTotal] = useState(0)
 
 	console.log(carrito)
 
   useEffect(() => {
-		const producto = Data.items 
+		const producto = Data.items
+		
 		if(producto){
 			setProductos(producto)
 		}else{
@@ -30,7 +30,7 @@ export const DataProvider = (props) => {
 			const data = productos.filter(producto =>{
 				return producto.id === id
 			})
-			setCarrito([...carrito, ...data])
+			setCheckout([...carrito, ...data])
 		}else{
 			alert("El producto se ha añadido al carrito")
 		}
@@ -38,7 +38,7 @@ export const DataProvider = (props) => {
 	useEffect(() =>{
 		const dataCarrito = JSON.parse(localStorage.getItem('dataCarrito'))
 		if(dataCarrito){
-			setCarrito(dataCarrito)
+			setCheckout(dataCarrito)
 		}
 	},[])
 
@@ -59,7 +59,7 @@ export const DataProvider = (props) => {
 	const value = {
 		productos : [productos],
 		menu: [menu, setMenu],
-		carrito: [carrito, setCarrito],
+		carrito: [carrito, setCheckout],
 		addCarrito: addCarrito,
 		total: [total, setTotal]
 	}

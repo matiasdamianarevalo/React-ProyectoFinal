@@ -25,13 +25,13 @@ export const NavBar = () => {
       </Link>
       <ul>
         <li>
-          <Link to="/">INICIO</Link>
+          <Link to="/">HOME</Link>
         </li>
         <li>
-          <Link to="/productos">PRODUCTOS</Link>
+          <Link to="/category">SHOES</Link>
         </li>
         <li>
-          <Link to="/contacto">CONTACTO</Link>
+          <Link to="/category">CLOTHING</Link>
         </li>
       </ul>
       <div className="cart" onClick={toogleMenu}>
@@ -41,3 +41,30 @@ export const NavBar = () => {
     </nav>
   );
 };
+
+/* 
+const filterResult = (catItem) =>{ 
+  const result = Categoryid.filter((curdate) =>{
+      return curdate.category === catItem;
+  });
+  setData(result);
+}
+
+onclick={() => filterResult('shoe')}}
+
+
+
+{Data.map((values) => {
+  const {id,title,description} = values;
+  return (
+      <>
+      
+      
+      
+      
+      </>
+
+
+  )
+
+})} */

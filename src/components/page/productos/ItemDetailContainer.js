@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { DataContext } from "context/DataProvider";
 import { useParams } from "react-router-dom";
-import { Item } from "./Item";
+import { ItemList } from "./ItemList";
 
-export const ProductosDetalles = () => {
+/* ProductosDetalles */
+
+export const ItemDetailContainer = () => {
   const value = useContext(DataContext);
   const [productos] = value.productos;
   const addCarrito = value.addCarrito;
@@ -23,20 +25,6 @@ export const ProductosDetalles = () => {
     });
   }, [params.id, productos]);
 
-  console.log(url);
-
-  /*   useEffect(() => {
-    const values = `${detalle.img1}${url}${detalle.img2}`;
-    setImages(values);
-  }, [url, params.id]); */
-  /* 
-  const handleInput = (e) => {
-    const number = e.target.value.toString().padStart(2, "01");
-    setUrl(number);
-  }; */
-
-  /*  if (detalle.length < 1) return null; */
-
   return (
     <>
       {
@@ -51,19 +39,7 @@ export const ProductosDetalles = () => {
           <br></br>
           <img src={detalle.img1} alt=".." />
           <div className="grid">
-            <div className="tamano">
-              <select placeholder="Tamaño">
-                <option value="1">37</option>
-                <option value="1">38</option>
-                <option value="1">39</option>
-                <option value="1">40</option>
-                <option value="1">41</option>
-                <option value="1">42</option>
-                <option value="1">43</option>
-                <option value="1">44</option>
-              </select>
-              <p>TALLE</p>
-            </div>
+
           </div>
           <button onClick={() => addCarrito(detalle.id)}>
             Añadir al carrito
@@ -79,14 +55,14 @@ export const ProductosDetalles = () => {
       <h2 className="relacionados">Productos relacionados</h2>
       <div className="productos">
         {productos.map((producto) => {
-          if (item < 6 && detalle.category === producto.category) {
+          if (item < 6 && detalle.categoryid === producto.categoryid) {
             item++;
             return (
-              <Item
+              <ItemList
                 key={producto.id}
                 title={producto.title}
                 image={producto.image}
-                category={producto.category}
+                categoryid={producto.categoryid}
                 img1={producto.img1}
                 price={producto.price}
                 details={producto.details}

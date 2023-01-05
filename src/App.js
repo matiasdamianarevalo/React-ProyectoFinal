@@ -1,6 +1,6 @@
 import React from "react";
 import { NavBar } from "./components/NavBar";
-import { Carrito } from "./components/Carrito";
+import { Checkout } from "./components/Checkout";
 import { DataProvider } from "./context/DataProvider";
 import { BrowserRouter as Router } from "react-router-dom";
 import Pages from "./components/Page.js";
@@ -12,7 +12,7 @@ function App() {
       <div className="App">
         <Router>
           <NavBar />
-          <Carrito />
+          <Checkout />
           <Pages />
         </Router>
       </div>

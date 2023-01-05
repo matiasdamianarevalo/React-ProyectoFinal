@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { DataContext } from "context/DataProvider";
 
-export const Carrito = () => {
+export const Checkout = () => {
   const value = useContext(DataContext);
   const [menu, setMenu] = value.menu;
-  const [carrito, setCarrito] = value.carrito;
+  const [carrito, setCheckout] = value.carrito;
   const [total] = value.total;
 
   const tooglefalse = () => {
@@ -16,7 +16,7 @@ export const Carrito = () => {
       if (item.id === id) {
         item.cantidad === 1 ? (item.cantidad = 1) : (item.cantidad -= 1);
       }
-      setCarrito([...carrito]);
+      setCheckout([...carrito]);
     });
   };
   const increase = (id) => {
@@ -24,7 +24,7 @@ export const Carrito = () => {
       if (item.id === id) {
         item.cantidad += 1;
       }
-      setCarrito([...carrito]);
+      setCheckout([...carrito]);
     });
   };
 
@@ -36,7 +36,7 @@ export const Carrito = () => {
           carrito.splice(index, 1);
         }
       });
-      setCarrito([...carrito]);
+      setCheckout([...carrito]);
     }
   };
 
